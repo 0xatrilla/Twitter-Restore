@@ -159,6 +159,39 @@ function replacePremiumBranding() {
   }
 }
 
+// Replace generic brand phrases like "Live on X" → "Live on Twitter"
+function replaceBrandPhrases() {
+  try {
+    const rules = [
+      [/\bLive on X\b/g, 'Live on Twitter'],
+      [/\bHappening on X\b/g, 'Happening on Twitter'],
+      [/\bTrending on X\b/g, 'Trending on Twitter'],
+      [/\bon X\b/g, 'on Twitter']
+    ];
+
+    const applyToTextNodes = (root) => {
+      if (!root) return;
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+      let node;
+      while ((node = walker.nextNode())) {
+        const val = node.nodeValue;
+        if (!val) continue;
+        let next = val;
+        for (const [re, rep] of rules) next = next.replace(re, rep);
+        if (next !== val) node.nodeValue = next;
+      }
+    };
+
+    // Limit scope to sidebars and headings to keep this cheap and safe
+    const scopes = [
+      document.querySelector('aside'),
+      ...document.querySelectorAll('[role="complementary"]'),
+      ...document.querySelectorAll('h1, h2, h3, h4, h5, h6')
+    ];
+    scopes.forEach(applyToTextNodes);
+  } catch {}
+}
+
 // Simple splash overlay to cover the default X splash while the app hydrates
 // (splash overlay removed by user request)
 
@@ -220,6 +253,7 @@ function debouncedUpdate() {
     replaceTitle();
     replacePostWithTweet();
     replacePremiumBranding();
+    replaceBrandPhrases();
   }, 100); // Wait 100ms after last mutation before updating
 }
 
@@ -270,6 +304,7 @@ function init() {
     replaceFavicon();
     replacePostWithTweet();
     replacePremiumBranding();
+    replaceBrandPhrases();
   });
 
   // Force favicon change after a short delay to ensure it overrides
@@ -350,6 +385,7 @@ const booster = setInterval(() => {
     replaceTitle();
     replacePostWithTweet();
     replacePremiumBranding();
+    replaceBrandPhrases();
   }
   if (boosterMs >= 10000) clearInterval(booster);
 }, 200);
@@ -362,6 +398,7 @@ document.addEventListener('visibilitychange', () => {
       replaceTitle();
       replacePostWithTweet();
       replacePremiumBranding();
+      replaceBrandPhrases();
     }, 500);
   }
 });
