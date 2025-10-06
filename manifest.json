@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Twitter Restoration",
+  "version": "1.0.0",
+  "description": "Restores Twitter's classic blue branding and bird logo, removing X rebrand",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://twitter.com/*", "*://x.com/*"],
+      "js": ["content.js"],
+      "css": ["twitter-theme.css"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/*.svg", "assets/*.png"],
+      "matches": ["*://twitter.com/*", "*://x.com/*"]
+    }
+  ],
+  "permissions": []
+}
+

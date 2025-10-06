@@ -1,0 +1,229 @@
+/* Twitter Blue Theme Restoration */
+
+/* Define Twitter blue colors */
+:root {
+  --twitter-blue: #1DA1F2 !important;
+  --twitter-blue-hover: #1A91DA !important;
+  --twitter-blue-light: #E8F5FE !important;
+  --twitter-blue-dark: #1170a8 !important;
+}
+
+/* ========== PRIMARY POST/TWEET BUTTON ========== */
+/* The main "Post" button at the top and in the composer */
+[data-testid="tweetButton"],
+[data-testid="tweetButtonInline"] {
+  background-color: var(--twitter-blue) !important;
+  border-color: var(--twitter-blue) !important;
+}
+
+[data-testid="tweetButton"]:hover:not(:disabled),
+[data-testid="tweetButtonInline"]:hover:not(:disabled) {
+  background-color: var(--twitter-blue-hover) !important;
+}
+
+/* Floating action button on mobile/responsive */
+[data-testid="SideNav_NewTweet_Button"] {
+  background-color: var(--twitter-blue) !important;
+}
+
+/* Compose button in navigation */
+a[href="/compose/post"],
+a[href="/compose/tweet"],
+a[data-testid="SideNav_NewTweet_Button"] {
+  background-color: var(--twitter-blue) !important;
+}
+
+a[href="/compose/post"]:hover,
+a[href="/compose/tweet"]:hover {
+  background-color: var(--twitter-blue-hover) !important;
+}
+
+/* ========== FOLLOW/SUBSCRIBE BUTTONS ========== */
+[data-testid="confirmationSheetConfirm"],
+[data-testid*="follow"]:not([data-testid*="unfollow"]) button,
+div[data-testid*="follow"]:not([data-testid*="unfollow"]) {
+  background-color: var(--twitter-blue) !important;
+  border-color: var(--twitter-blue) !important;
+}
+
+[data-testid="confirmationSheetConfirm"]:hover,
+[data-testid*="follow"]:not([data-testid*="unfollow"]):hover button {
+  background-color: var(--twitter-blue-hover) !important;
+}
+
+/* ========== TABS AND NAVIGATION ========== */
+/* Active tab text color */
+[role="tab"][aria-selected="true"] span {
+  color: var(--twitter-blue) !important;
+}
+
+/* Tab underline indicator - ONLY the thin line at bottom */
+[role="tab"][aria-selected="true"] > div > div[style*="background"] {
+  background-color: var(--twitter-blue) !important;
+}
+
+/* Specifically target the underline div that appears at the bottom */
+[role="tab"] > div > div:last-child[style*="position"][style*="bottom"] {
+  background-color: var(--twitter-blue) !important;
+}
+
+/* Explicitly prevent tab button backgrounds from being blue */
+[role="tab"][aria-selected="true"],
+[role="tab"][aria-selected="true"] > div,
+[role="tab"][aria-selected="true"] > div:first-child {
+  background-color: transparent !important;
+}
+
+/* Active navigation items */
+nav a[aria-current="page"] {
+  color: var(--twitter-blue) !important;
+}
+
+nav a[aria-current="page"] span {
+  color: var(--twitter-blue) !important;
+}
+
+/* ========== LINKS ========== */
+/* Hashtags and explicit URLs inside tweet text only */
+div[data-testid="tweetText"] a[href*="/hashtag/"] span,
+article a[href*="/hashtag/"] span,
+div[data-testid="tweetText"] a[href^="http"] span,
+article div[data-testid="tweetText"] a span {
+  color: var(--twitter-blue) !important;
+}
+
+/* Keep reposted/retweet attribution usernames default (not blue) */
+div[data-testid="socialContext"] a span {
+  color: inherit !important;
+}
+
+/* Hover underline color for links */
+a[role="link"]:hover span {
+  text-decoration-color: var(--twitter-blue) !important;
+}
+
+/* ========== ICONS ========== */
+/* Make navigation icons blue when active */
+nav a[aria-current="page"] svg {
+  color: var(--twitter-blue) !important;
+}
+
+/* Verified checkmark */
+svg[aria-label*="Verified account"],
+svg[data-testid="icon-verified"] {
+  color: var(--twitter-blue) !important;
+  fill: var(--twitter-blue) !important;
+}
+
+/* ========== INTERACTIVE ELEMENTS ========== */
+/* Notification badges */
+[data-testid="notification-badge"],
+div[dir="ltr"][style*="background-color"] {
+  background-color: var(--twitter-blue) !important;
+}
+
+/* When you've liked something */
+[data-testid="unlike"] svg {
+  fill: #F91880 !important; /* Keep pink for likes */
+}
+
+/* Retweet when active */
+[data-testid="unretweet"] svg {
+  fill: #00BA7C !important; /* Keep green for retweets */
+}
+
+/* Don't override hover backgrounds - let Twitter handle it */
+
+/* ========== FORMS ========== */
+/* Checkboxes */
+input[type="checkbox"]:checked {
+  accent-color: var(--twitter-blue) !important;
+  background-color: var(--twitter-blue) !important;
+}
+
+/* Radio buttons */
+input[type="radio"]:checked {
+  accent-color: var(--twitter-blue) !important;
+}
+
+/* Focus outline */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline-color: var(--twitter-blue) !important;
+}
+
+/* ========== LOADING INDICATORS ========== */
+/* Spinner */
+circle[stroke][r="20"] {
+  stroke: var(--twitter-blue) !important;
+}
+
+/* Progress bar */
+[role="progressbar"] div[style*="background-color"] {
+  background-color: var(--twitter-blue) !important;
+}
+
+/* ========== HOVER STATES ========== */
+/* Navigation item text color on hover */
+nav a:hover span {
+  color: var(--twitter-blue) !important;
+}
+
+/* Tab buttons on hover - light background only */
+[role="tab"]:hover:not([aria-selected="true"]) {
+  background-color: rgba(29, 161, 242, 0.1) !important;
+}
+
+/* ========== MISCELLANEOUS ========== */
+/* Text selection */
+::selection {
+  background-color: var(--twitter-blue-light) !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(29, 161, 242, 0.5) !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--twitter-blue) !important;
+}
+
+/* Logo from JavaScript should be blue */
+.twitter-restored-logo path {
+  fill: var(--twitter-blue) !important;
+}
+
+/* Ensure logo sizing is correct and not oversized */
+.twitter-restored-logo {
+  max-width: 100% !important;
+  max-height: 100% !important;
+  display: inline-block !important;
+}
+
+/* Force proper sizing for navigation logos */
+h1[role="heading"] svg.twitter-restored-logo {
+  width: inherit !important;
+  height: inherit !important;
+}
+
+/* Don't change the Home icon - leave it as is */
+
+/* Ensure buttons with inline black background become blue */
+button[style*="rgb(0, 0, 0)"][style*="background"],
+div[role="button"][style*="rgb(0, 0, 0)"][style*="background"] {
+  background-color: var(--twitter-blue) !important;
+}
+
+/* The compose button if it has inline styles */
+[aria-label*="Post"][role="link"],
+[aria-label*="Tweet"][role="link"] {
+  background-color: var(--twitter-blue) !important;
+}
+
+/* DM button and other primary CTAs */
+[data-testid="sendDMFromProfile"],
+[data-testid="DMDrawerHeader_CreateMessageButton"] {
+  background-color: var(--twitter-blue) !important;
+}

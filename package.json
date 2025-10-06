@@ -1,0 +1,19 @@
+{
+  "name": "twitter-restoration",
+  "version": "1.0.0",
+  "description": "Chrome extension that restores Twitter's classic blue branding and bird logo",
+  "author": "Your Name",
+  "license": "MIT",
+  "keywords": [
+    "twitter",
+    "chrome-extension",
+    "theme",
+    "twitter-bird",
+    "ui-restoration"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "your-repo-url"
+  }
+}
+

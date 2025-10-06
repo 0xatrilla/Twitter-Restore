@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Icon Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .icon-container {
+      display: inline-block;
+      margin: 20px;
+      text-align: center;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    img {
+      display: block;
+      margin: 10px auto;
+      border: 1px solid #ddd;
+    }
+    h1 {
+      color: #1DA1F2;
+    }
+    .instructions {
+      background: #E8F5FE;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+      border-left: 4px solid #1DA1F2;
+    }
+  </style>
+</head>
+<body>
+  <h1>🐦 Twitter Restoration - Icon Converter</h1>
+  
+  <div class="instructions">
+    <strong>Instructions:</strong>
+    <ol>
+      <li>Right-click on each icon below</li>
+      <li>Select "Save image as..."</li>
+      <li>Save as PNG with the filename shown below each icon</li>
+      <li>Save all files to the <code>icons/</code> folder</li>
+    </ol>
+  </div>
+
+  <div class="icon-container">
+    <h3>16x16 Icon</h3>
+    <img src="icon16.svg" width="16" height="16" alt="16x16 icon">
+    <p>Save as: <strong>icon16.png</strong></p>
+  </div>
+
+  <div class="icon-container">
+    <h3>48x48 Icon</h3>
+    <img src="icon48.svg" width="48" height="48" alt="48x48 icon">
+    <p>Save as: <strong>icon48.png</strong></p>
+  </div>
+
+  <div class="icon-container">
+    <h3>128x128 Icon</h3>
+    <img src="icon128.svg" width="128" height="128" alt="128x128 icon">
+    <p>Save as: <strong>icon128.png</strong></p>
+  </div>
+
+  <div class="instructions">
+    <strong>Alternative:</strong> Use browser DevTools to capture these icons as PNG:
+    <ol>
+      <li>Right-click on an icon → "Inspect"</li>
+      <li>In DevTools, right-click the &lt;img&gt; element</li>
+      <li>Select "Capture node screenshot"</li>
+      <li>Save with the correct filename</li>
+    </ol>
+  </div>
+</body>
+</html>
